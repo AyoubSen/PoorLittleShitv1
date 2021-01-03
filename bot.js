@@ -57,8 +57,8 @@ client.on('voiceStateUpdate', async hh => {
 client.on('inviteCreate', invcreate =>{
 
     let botroom =  client.channels.cache.get('794960072702033980');
-
-    botroom.send("an inv was created");
+    let whoDidIt = invcreate.inviter;
+    botroom.send("an inv was created by " + whoDidIt);
 });
 
 
