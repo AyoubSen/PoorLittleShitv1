@@ -15,16 +15,21 @@ let PREFIX = "@everyone";
 
 // This deletes any message where someone has included @everyone, and tells them to not do it.
 //-------------------------------------------------------------------
-client.on("message", (message) => {
+client.on("message", async (message) => {
   let parsed = parse(message, "$");
   if (parsed.command == "delete") {
     let qty = parseInt(parsed.arguments[0]);
     if (!qty) {
       message.reply("idk, please, 7et lina chi l3yba");
     } else {
-      message.reply(parsed.arguments[0]);
+      let mgsToDelete = await message.channel.messages.fetch({
+        limit: qty < 20 ? qty : 20,
+      });
+      await message.channel.bulkDelete(mgsToDelete);
+      message.reply((qty < 20 ? qty : 20) + " Messages have been deleted");
     }
   }
+
   if (
     message.content.includes(
       PREFIX
