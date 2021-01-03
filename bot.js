@@ -1,5 +1,5 @@
 require("dotenv").config();
-import { parse } from "discord-command-parser";
+const parse = require("discord-command-parser").parse;
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
