@@ -20,7 +20,7 @@ client.on('message', message => {
 });
 
 let lastActionId;
-let lasActionId2;
+let lastActionId2;
 
 client.on('voiceStateUpdate', async hh => {
 
@@ -39,7 +39,7 @@ client.on('voiceStateUpdate', async hh => {
     }
 
     if((nnhh.action === "MEMBER_DISCONNECT") && (nnhh.id !== lastActionId2)){
-        lastActionId2 = nnhh.id;
+
         let tkicka = hh.member.user.username;
         let kicka = nnhh.executor.username;
         botroom.send(tkicka + " was kicked by " + kicka);
