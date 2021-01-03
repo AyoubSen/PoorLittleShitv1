@@ -78,12 +78,12 @@ client.on("messageDelete", async (msgdeleted) => {
     let now = Date.now();
 
     if (now - whenWasIt >= 1000) {
+      botroom.send(whosemessage + "Deleted his own message");
+      botroom.send("' " + text + " '");
+    } else {
       botroom.send(
         "A message of " + whosemessage + " was deleted by " + whoDidItId
       );
-      botroom.send("' " + text + " '");
-    } else {
-      botroom.send(whosemessage + "Deleted his own message");
       botroom.send("' " + text + " '");
     }
   } else {
