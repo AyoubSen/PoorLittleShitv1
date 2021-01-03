@@ -78,16 +78,16 @@ client.on('messageDelete', async msgdeleted => {
         let botroom =  client.channels.cache.get('794960072702033980');
         let takeFromAudit = (await client.guilds.cache.get('212250736254255104').fetchAuditLogs({limit:1})).entries.array()[0];
         let whosemessage = msgdeleted.author.username;
-        
+        let text = msgdeleted.cleanContent;
+        let whoDidItId = takeFromAudit.executor.id;
     
 if((takeFromAudit.action === "MESSAGE_DELETE")){
 
     if ((takeFromAudit.id !== lastActionId2)){
         lastActionId2 = takeFromAudit.id;
-         let whoDidItId = takeFromAudit.executor.id;
-         let text = msgdeleted.cleanContent;
-
-        botroom.send("A message of " + whosemessage + " was deleted by " + whoDidIt);
+       
+    
+        botroom.send("A message of " + whosemessage + " was deleted by " + whoDidItId);
         botroom.send("' " + text + " '");
     }
     else{
