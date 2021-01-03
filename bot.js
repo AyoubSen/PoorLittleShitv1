@@ -31,8 +31,11 @@ client.on('voiceStateUpdate', async hh => {
         lastActionId = nnhh.id;
         let tmova = hh.member.user.username;
         let mova = nnhh.executor.username;
-        botroom.send(tmova + " was moved by " + mova );
-        console.log(nnhh);
+        if(tmova != mova){
+            botroom.send(tmova + " was moved by " + mova );
+            console.log(nnhh);
+        }
+        
     }
 
     if((nnhh.action === "MEMBER_DISCONNECT")){
