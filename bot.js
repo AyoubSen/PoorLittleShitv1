@@ -77,6 +77,7 @@ client.on('messageDelete', async msgdeleted => {
 
     let botroom =  client.channels.cache.get('794960072702033980');
     let whosemessage = msgdeleted.author.username;
+    let text = msgdeleted.cleanContent;
 
 
     botroom.send("A message of " + whosemessage + " was deleted");
