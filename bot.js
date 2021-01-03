@@ -73,29 +73,14 @@ let lastActionId2;
 
 // this is to know whom message was deleted
 //------------------------------------------------------------------- 
-client.on('messageDelete', msgdeleted => {
+client.on('messageDelete', async msgdeleted => {
 
     let botroom =  client.channels.cache.get('794960072702033980');
-        let takeFromAudit = (client.guilds.cache.get('212250736254255104').fetchAuditLogs({limit:1})).entries.array()[0];
-        let whosemessage = msgdeleted.author.username;
-        let text = msgdeleted.cleanContent;
-        let whoDidItId = takeFromAudit.executor.username;
-    
-if((takeFromAudit.action === "MESSAGE_DELETE")){
+    let whosemessage = msgdeleted.author.username;
 
-    if ((takeFromAudit.id === lastActionId2)){
-        lastActionId2 = takeFromAudit.id;
-       
-    
-        botroom.send("A message of " + whosemessage + " was deleted by " + whoDidItId);
-        botroom.send("' " + text + " '");
-    }
-    else{
-        botroom.send("A message of " + whosemessage + " was deleted by " + whosemessage);
-        botroom.send("' " + text + " '");
-    }
-}
 
+    botroom.send("A message of " + whosemessage + " was deleted");
+    botroom.send("' " + text + " '");
     
       
 });
@@ -154,7 +139,26 @@ if ((message.mentions.everyone) /*&& (message.channel.id == '597149043793068053'
 }
 
 
+    let botroom =  client.channels.cache.get('794960072702033980');
+        let takeFromAudit = (await client.guilds.cache.get('212250736254255104').fetchAuditLogs({limit:1})).entries.array()[0];
+        let whosemessage = msgdeleted.author.username;
+        let text = msgdeleted.cleanContent;
+        let whoDidItId = takeFromAudit.executor.username;
+    
+if((takeFromAudit.action === "MESSAGE_DELETE")){
 
+    if ((takeFromAudit.id === lastActionId2)){
+        lastActionId2 = takeFromAudit.id;
+       
+    
+        botroom.send("A message of " + whosemessage + " was deleted by " + whoDidItId);
+        botroom.send("' " + text + " '");
+    }
+    else{
+        botroom.send("A message of " + whosemessage + " was deleted by " + whosemessage);
+        botroom.send("' " + text + " '");
+    }
+}
 
    
   */
