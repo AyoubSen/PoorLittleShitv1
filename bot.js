@@ -83,7 +83,7 @@ client.on('messageDelete', async msgdeleted => {
     
 if((takeFromAudit.action === "MESSAGE_DELETE")){
 
-    if ((takeFromAudit.id !== lastActionId2)){
+    if ((takeFromAudit.id === lastActionId2)){
         lastActionId2 = takeFromAudit.id;
        
     
