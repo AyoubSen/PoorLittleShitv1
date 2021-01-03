@@ -69,14 +69,17 @@ client.on('inviteCreate', invcreate =>{
 
 client.on('messageDelete', msgdeleted => {
 
-    let botroom =  client.channels.cache.get('794960072702033980');
+    if (msgdeleted.author.id !== "143839155372294144"){
+        let botroom =  client.channels.cache.get('794960072702033980');
 
-    let whoDidIt = msgdeleted.client.username;
-
-    let text = msgdeleted.content;
-
-    botroom.send("A message was deleted by " + whoDidIt);
-    botroom.send(text);
+        let whoDidIt = msgdeleted.author.username;
+    
+        let text = msgdeleted.cleanContent;
+    
+        botroom.send("A message of " + whoDidIt + " was deleted by " + whoDidIt);
+        botroom.send("' " + text + " '");
+    }
+    
 
 
     
@@ -120,6 +123,7 @@ client.on('messageDelete', msgdeleted => {
 
 
 /*
+
     if((nnhh.action === "MEMBER_DISCONNECT")){
 
         let tkicka = hh.member.user.username;
@@ -130,4 +134,6 @@ client.on('messageDelete', msgdeleted => {
 if ((message.mentions.everyone) /*&& (message.channel.id == '597149043793068053')){
     message.delete();
     message.reply("Don't tag everyone");
+
+
 }*/
