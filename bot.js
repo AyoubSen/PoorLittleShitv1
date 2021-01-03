@@ -25,8 +25,11 @@ let lastActionId2;
 client.on('voiceStateUpdate', async hh => {
 
     let botroom =  client.channels.cache.get('794960072702033980');
+
     let nnhh = (await client.guilds.cache.get('212250736254255104').fetchAuditLogs({limit:1})).entries.array()[0];
 
+    console.log (nnhh.id);
+    /*
     if((nnhh.action === "MEMBER_MOVE") && (nnhh.id !== lastActionId)){
         lastActionId = nnhh.id;
         let tmova = hh.member.user.username;
@@ -46,7 +49,7 @@ client.on('voiceStateUpdate', async hh => {
         console.log(nnhh);
     }
     */
-});
+}); 
 
 
     
