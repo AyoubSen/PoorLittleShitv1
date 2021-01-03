@@ -16,7 +16,7 @@ let PREFIX = "@everyone";
 client.on('message', message => {
 	
     
-    if ((message.content.indexOf(PREFIX)) /*&& (message.channel.id == '597149043793068053')*/){
+    if ((message.content.includes(PREFIX)) /*&& (message.channel.id == '597149043793068053')*/){
         message.delete();
         message.reply("Don't tag everyone");
 	}
