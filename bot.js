@@ -31,7 +31,7 @@ client.on('voiceStateUpdate', async hh => {
         lastActionId = nnhh.id;
         let tmova = hh.member.user.username;
         let mova = nnhh.executor.username;
-        if(tmova != mova){
+        if(tmova !== mova){
             botroom.send(tmova + " was moved by " + mova );
             console.log(nnhh);
         }
