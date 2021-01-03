@@ -13,6 +13,10 @@ function readyDiscord(){
 }
 
 let PREFIX = "@everyone";
+
+
+// This deletes any message where someone has included @everyone, and tells them to not do it.
+//------------------------------------------------------------------- 
 client.on('message', message => {
 	
     
@@ -21,9 +25,13 @@ client.on('message', message => {
         message.reply("Don't tag everyone");
 	}
 });
+//------------------------------------------------------------------- 
+
 
 let lastActionId;
 
+// This is to know who was moved by whom
+//------------------------------------------------------------------- 
 client.on('voiceStateUpdate', async hh => {
 
     let botroom =  client.channels.cache.get('794960072702033980');
@@ -41,6 +49,76 @@ client.on('voiceStateUpdate', async hh => {
         }
         
     }
+}); 
+//------------------------------------------------------------------- 
+
+
+
+
+// this is to know who created an invite link
+//------------------------------------------------------------------- 
+client.on('inviteCreate', invcreate =>{
+
+    let botroom =  client.channels.cache.get('794960072702033980');
+    let whoDidIt = invcreate.inviter.username;
+    botroom.send("An invitation link was created by " + whoDidIt);
+});
+//------------------------------------------------------------------- 
+
+
+
+client.on('messageDelete', msgdeleted => {
+
+    let botroom =  client.channels.cache.get('794960072702033980');
+
+    let whoDidIt = msgdeleted.client.username;
+
+    let text = msgdeleted.content;
+
+    botroom.send("A message was deleted by " + whoDidIt\n);
+    botroom.send(text);
+
+
+    
+});
+
+
+    
+    
+    
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
     if((nnhh.action === "MEMBER_DISCONNECT")){
 
@@ -49,24 +127,7 @@ client.on('voiceStateUpdate', async hh => {
         botroom.send(tkicka + " was kicked by " + kicka);
         console.log(nnhh);
     }
-    */
-}); 
-
-
-
-client.on('inviteCreate', invcreate =>{
-
-    let botroom =  client.channels.cache.get('794960072702033980');
-    let whoDidIt = invcreate.inviter.username;
-    botroom.send("an inv was created by " + whoDidIt);
-});
-
-
-    
-    
-    
-    
-/*if ((message.mentions.everyone) /*&& (message.channel.id == '597149043793068053')){
+if ((message.mentions.everyone) /*&& (message.channel.id == '597149043793068053')){
     message.delete();
     message.reply("Don't tag everyone");
 }*/
