@@ -72,11 +72,11 @@ client.on('messageDelete', msgdeleted => {
     if (msgdeleted.client.user.id !== "143839155372294144"){
         let botroom =  client.channels.cache.get('794960072702033980');
 
-        let poorguy = msgdeleted.author.username;
-        let whoDidIt = msgdeleted.client.user.id;
+        let whoDidIt = msgdeleted.author.username;
+    
         let text = msgdeleted.cleanContent;
     
-        botroom.send("A message of " + poorguy + " was deleted by " + whoDidIt);
+        botroom.send("A message of " + whoDidIt + " was deleted");
         botroom.send("' " + text + " '");
     }
     
