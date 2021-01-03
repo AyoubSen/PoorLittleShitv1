@@ -37,7 +37,7 @@ client.on('voiceStateUpdate', async hh => {
         }
         
     }
-
+/*
     if((nnhh.action === "MEMBER_DISCONNECT")){
 
         let tkicka = hh.member.user.username;
@@ -45,6 +45,7 @@ client.on('voiceStateUpdate', async hh => {
         botroom.send(tkicka + " was kicked by " + kicka);
         console.log(nnhh);
     }
+    */
 });
 
 
