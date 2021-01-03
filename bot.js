@@ -71,24 +71,25 @@ client.on("messageDelete", async (msgdeleted) => {
   let botroom = client.channels.cache.get("794960072702033980");
   let whosemessage = msgdeleted.author.username;
   let text = msgdeleted.cleanContent;
+  if (!msgdeleted.author.bot) {
+    if (takeFromAudit.action === "MESSAGE_DELETE") {
+      let whenWasIt = takeFromAudit.createdTimestamp;
+      let whoDidItId = takeFromAudit.executor.username;
+      let now = Date.now();
 
-  if (takeFromAudit.action === "MESSAGE_DELETE") {
-    let whenWasIt = takeFromAudit.createdTimestamp;
-    let whoDidItId = takeFromAudit.executor.username;
-    let now = Date.now();
-
-    if (now - whenWasIt >= 1000) {
-      botroom.send(whosemessage + "Deleted his own message");
-      botroom.send("' " + text + " '");
+      if (now - whenWasIt >= 1000) {
+        botroom.send(whosemessage + " Deleted his own message");
+        botroom.send("' " + text + " '");
+      } else {
+        botroom.send(
+          "A message of " + whosemessage + " was deleted by " + whoDidItId
+        );
+        botroom.send("' " + text + " '");
+      }
     } else {
-      botroom.send(
-        "A message of " + whosemessage + " was deleted by " + whoDidItId
-      );
+      botroom.send(whosemessage + " Deleted his own message");
       botroom.send("' " + text + " '");
     }
-  } else {
-    botroom.send(whosemessage + "Deleted his own message");
-    botroom.send("' " + text + " '");
   }
 });
 
