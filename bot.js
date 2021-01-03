@@ -43,7 +43,7 @@ client.on('voiceStateUpdate', async kicked => {
     let botroom =  client.channels.cache.get('794960072702033980'); 
     let nnhh2 = (await client.guilds.cache.get('212250736254255104').fetchAuditLogs({limit:1})).entries.array()[0];
     
-    if((nnhh2.action === "MEMBER_DISCONNECT")){
+    if((nnhh2.action === "MEMBER_KICK")){
         let tkicka = kicked.member.user.username;
         let kicka = nnhh2.executor.username;
         botroom.send(tkicka + " was kicked by " + kicka);
