@@ -68,11 +68,11 @@ client.on('inviteCreate', invcreate =>{
 
 // this is to know whom message was deleted
 //------------------------------------------------------------------- 
-client.on('messageDelete', msgdeleted => {
+client.on('messageDelete', async msgdeleted => {
 
     
         let botroom =  client.channels.cache.get('794960072702033980');
-        let takeFromAudit = (await client.guilds.cache.get('212250736254255104').fetchAuditLogs({limit:1})).entries.array()[0];
+        let takeFromAudit = ( await client.guilds.cache.get('212250736254255104').fetchAuditLogs({limit:1})).entries.array()[0];
         let whosemessage = msgdeleted.author.username;
 
         let whoDidIt = takeFromAudit.executor.username;
