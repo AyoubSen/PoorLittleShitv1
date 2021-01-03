@@ -91,7 +91,7 @@ if((takeFromAudit.action === "MESSAGE_DELETE")){
         botroom.send("' " + text + " '");
     }
     else{
-        botroom.send("A message of " + whosemessage + " was deleted");
+        botroom.send("A message of " + whosemessage + " was deleted by " + whosemessage);
         botroom.send("' " + text + " '");
     }
 }
