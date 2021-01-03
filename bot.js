@@ -34,7 +34,7 @@ client.on('voiceStateUpdate', async hh => {
     }
 });
 
-
+/*
 
 client.on('voiceStateUpdate', async kicked => {
     
@@ -44,3 +44,4 @@ client.on('voiceStateUpdate', async kicked => {
         botroom.send(tkicka + " was kicked by " + kicka);
     }
 });
+*/
