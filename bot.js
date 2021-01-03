@@ -70,13 +70,13 @@ client.on('inviteCreate', invcreate =>{
 
 
 let lastActionId2;
+
 // this is to know whom message was deleted
 //------------------------------------------------------------------- 
-client.on('messageDelete', async msgdeleted => {
+client.on('messageDelete', msgdeleted => {
 
-    
-        let botroom =  client.channels.cache.get('794960072702033980');
-        let takeFromAudit = (await client.guilds.cache.get('212250736254255104').fetchAuditLogs({limit:1})).entries.array()[0];
+    let botroom =  client.channels.cache.get('794960072702033980');
+        let takeFromAudit = (client.guilds.cache.get('212250736254255104').fetchAuditLogs({limit:1})).entries.array()[0];
         let whosemessage = msgdeleted.author.username;
         let text = msgdeleted.cleanContent;
         let whoDidItId = takeFromAudit.executor.username;
@@ -95,8 +95,9 @@ if((takeFromAudit.action === "MESSAGE_DELETE")){
         botroom.send("' " + text + " '");
     }
 }
-   
-  
+
+    
+      
 });
 
 
@@ -132,7 +133,7 @@ if((takeFromAudit.action === "MESSAGE_DELETE")){
 
 
 
-
+// so i know how big of a failure i am: 
 
 
 
@@ -150,4 +151,10 @@ if ((message.mentions.everyone) /*&& (message.channel.id == '597149043793068053'
     message.reply("Don't tag everyone");
 
 
-}*/
+}
+
+
+
+
+   
+  */
