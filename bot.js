@@ -69,14 +69,14 @@ client.on('inviteCreate', invcreate =>{
 
 client.on('messageDelete', msgdeleted => {
 
-    if (msgdeleted.author.id !== "143839155372294144"){
+    if (msgdeleted.client.user.id !== "143839155372294144"){
         let botroom =  client.channels.cache.get('794960072702033980');
 
-        let whoDidIt = msgdeleted.author.username;
-    
+        let poorguy = msgdeleted.author.username;
+        let whoDidIt = msgdeleted.client.user.id;
         let text = msgdeleted.cleanContent;
     
-        botroom.send("A message of " + whoDidIt + " was deleted");
+        botroom.send("A message of " + poorguy + " was deleted by " + whoDidIt);
         botroom.send("' " + text + " '");
     }
     
