@@ -47,6 +47,6 @@ client.on('voiceStateUpdate', async kicked => {
         let tkicka = kicked.member.user.username;
         let kicka = nnhh2.executor.username;
         botroom.send(tkicka + " was kicked by " + kicka);
-        
+        console.log(nnhh2);
     }
 });
