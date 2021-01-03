@@ -79,7 +79,7 @@ client.on('messageDelete', async msgdeleted => {
         let takeFromAudit = (await client.guilds.cache.get('212250736254255104').fetchAuditLogs({limit:1})).entries.array()[0];
         let whosemessage = msgdeleted.author.username;
         let text = msgdeleted.cleanContent;
-        let whoDidItId = takeFromAudit.executor.id;
+        let whoDidItId = takeFromAudit.executor.username;
     
 if((takeFromAudit.action === "MESSAGE_DELETE")){
 
