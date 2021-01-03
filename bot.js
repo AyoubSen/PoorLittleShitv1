@@ -1,4 +1,5 @@
 require("dotenv").config();
+import { parse } from "discord-command-parser";
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
@@ -15,6 +16,10 @@ let PREFIX = "@everyone";
 // This deletes any message where someone has included @everyone, and tells them to not do it.
 //-------------------------------------------------------------------
 client.on("message", (message) => {
+  let parsed = parse(message, "$");
+  if (parsed.command == "delete") {
+    message.reply(parsed.arguments[0]);
+  }
   if (
     message.content.includes(
       PREFIX
