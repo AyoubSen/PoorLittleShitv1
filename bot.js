@@ -76,7 +76,7 @@ client.on('messageDelete', msgdeleted => {
     
         let text = msgdeleted.cleanContent;
     
-        botroom.send("A message of " + whoDidIt + " was deleted by " + whoDidIt);
+        botroom.send("A message of " + whoDidIt + " was deleted");
         botroom.send("' " + text + " '");
     }
     
