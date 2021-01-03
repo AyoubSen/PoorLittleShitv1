@@ -18,7 +18,12 @@ let PREFIX = "@everyone";
 client.on("message", (message) => {
   let parsed = parse(message, "$");
   if (parsed.command == "delete") {
-    message.reply(parsed.arguments[0]);
+    let qty = parseInt(parsed.arguments[0]);
+    if (!qty) {
+      message.reply("idk, please, 7et lina chi l3yba");
+    } else {
+      message.reply(parsed.arguments[0]);
+    }
   }
   if (
     message.content.includes(
