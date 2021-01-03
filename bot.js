@@ -34,19 +34,16 @@ client.on('voiceStateUpdate', async hh => {
         botroom.send(tmova + " was moved by " + mova );
         console.log(nnhh);
     }
-});
-
-
-
-client.on('voiceStateUpdate', async kicked => {
-    
-    let botroom =  client.channels.cache.get('794960072702033980'); 
-    let nnhh2 = (await client.guilds.cache.get('212250736254255104').fetchAuditLogs({limit:1})).entries.array()[0];
-    
-    if((nnhh2.action === "MEMBER_KICK")){
+    if((nnhh.action === "MEMBER_DISCONNECT")){
         let tkicka = kicked.member.user.username;
-        let kicka = nnhh2.executor.username;
+        let kicka = nnhh.executor.username;
         botroom.send(tkicka + " was kicked by " + kicka);
-        console.log(nnhh2);
+        console.log(nnhh);
     }
 });
+
+
+    
+    
+    
+    
