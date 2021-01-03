@@ -38,7 +38,7 @@ client.on('voiceStateUpdate', async hh => {
         
     }
 
-    if((nnhh.action === "MEMBER_DISCONNECT") && (nnhh.id !== lastActionId2)){
+    if((nnhh.action === "MEMBER_DISCONNECT") && (nnhh.id !== lastActionId)){
 
         let tkicka = hh.member.user.username;
         let kicka = nnhh.executor.username;
