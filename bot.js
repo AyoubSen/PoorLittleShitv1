@@ -23,7 +23,7 @@ client.on("message", async (message) => {
       message.reply("idk, please, 7et lina chi l3yba");
     } else {
       let mgsToDelete = await message.channel.messages.fetch({
-        limit: qty < 20 ? qty : 20,
+        limit: (qty < 20 ? qty : 20) + 1,
       });
       await message.channel.bulkDelete(mgsToDelete);
       message.reply((qty < 20 ? qty : 20) + " Messages have been deleted");
