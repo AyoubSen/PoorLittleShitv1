@@ -12,8 +12,11 @@ function readyDiscord(){
 
 }
 
+let PREFIX = "@everyone";
 client.on('message', message => {
-	if ((message.mentions.everyone) /*&& (message.channel.id == '597149043793068053')*/){
+	
+    
+    if ((message.content.indexOf(PREFIX)) /*&& (message.channel.id == '597149043793068053')*/){
         message.delete();
         message.reply("Don't tag everyone");
 	}
@@ -54,3 +57,7 @@ client.on('voiceStateUpdate', async hh => {
     
     
     
+/*if ((message.mentions.everyone) /*&& (message.channel.id == '597149043793068053')){
+    message.delete();
+    message.reply("Don't tag everyone");
+}*/
