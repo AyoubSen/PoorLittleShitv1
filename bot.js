@@ -31,8 +31,9 @@ client.on("message", async (message) => {
   }
   let whosemessage = message.author.id;
   if (
-    message.content.includes(PREFIX) &&
-    whosemessage !== "794950245275926608"
+    message.content.includes(
+      PREFIX
+    ) /*&& (message.channel.id == '597149043793068053')*/
   ) {
     message.delete();
     message.channel.send("Don't tag everyone");
