@@ -92,7 +92,7 @@ client.on("messageDelete", async (msgdeleted) => {
       let whoDidItId = takeFromAudit.executor.username;
       let now = Date.now();
 
-      if (now - whenWasIt >= 1000) {
+      if (now - whenWasIt >= 1000 && whoDidItId !== "794950245275926608") {
         botroom.send(whosemessage + " Deleted his own message");
         botroom.send("' " + text + " '");
       } else {
@@ -106,7 +106,6 @@ client.on("messageDelete", async (msgdeleted) => {
         if (whosemessage !== "794950245275926608") {
           botroom.send(whosemessage + " Deleted his own message");
           botroom.send("' " + text + " '");
-          console.log(whosemessage);
         }
       }
     }
