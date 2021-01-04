@@ -109,7 +109,7 @@ client.on("messageDelete", async (msgdeleted) => {
       }
     }
   } else {
-    break;
+    botroom.send("PoorlittleShit deleted his own message, like an idiot");
   }
 });
 
