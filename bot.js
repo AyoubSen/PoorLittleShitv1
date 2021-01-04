@@ -103,10 +103,8 @@ client.on("messageDelete", async (msgdeleted) => {
       }
     } else {
       {
-        if (whosemessage !== "794950245275926608") {
-          botroom.send(whosemessage + " Deleted his own message");
-          botroom.send("' " + text + " '");
-        }
+        botroom.send(whosemessage + " Deleted his own message");
+        botroom.send("' " + text + " '");
       }
     }
   }
