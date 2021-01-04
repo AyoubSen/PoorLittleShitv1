@@ -103,13 +103,12 @@ client.on("messageDelete", async (msgdeleted) => {
       }
     } else {
       {
-        botroom.send(whosemessage + " Deleted his own message");
-        botroom.send("' " + text + " '");
-        console.log(takeFromAudit.executor.id);
+        if (whosemessage !== "794950245275926608") {
+          botroom.send(whosemessage + " Deleted his own message");
+          botroom.send("' " + text + " '");
+        }
       }
     }
-  } else {
-    botroom.send("PoorlittleShit deleted his own message, like an idiot");
   }
 });
 
