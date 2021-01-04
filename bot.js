@@ -101,7 +101,7 @@ client.on("messageDelete", async (msgdeleted) => {
         );
         botroom.send("' " + text + " '");
       }
-    } else {
+    } else if (takeFromAudit.executor.id !== "794950245275926608") {
       botroom.send(whosemessage + " Deleted his own message");
       botroom.send("' " + text + " '");
     }
