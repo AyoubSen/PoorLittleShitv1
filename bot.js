@@ -29,11 +29,10 @@ client.on("message", async (message) => {
       message.reply((qty < 20 ? qty : 20) + " Messages have been deleted");
     }
   }
-
+  let whosemessage = message.author.id;
   if (
-    message.content.includes(
-      PREFIX
-    ) /*&& (message.channel.id == '597149043793068053')*/
+    message.content.includes(PREFIX) &&
+    whosemessage !== "794950245275926608"
   ) {
     message.delete();
     message.channel.send("Don't tag everyone");
@@ -92,7 +91,7 @@ client.on("messageDelete", async (msgdeleted) => {
       let whoDidItId = takeFromAudit.executor.username;
       let now = Date.now();
 
-      if (now - whenWasIt >= 1000 && whoDidItId !== "794950245275926608") {
+      if (now - whenWasIt >= 1000) {
         botroom.send(whosemessage + " Deleted his own message");
         botroom.send("' " + text + " '");
       } else {
