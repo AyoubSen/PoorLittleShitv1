@@ -65,6 +65,12 @@ client.on("voiceStateUpdate", async (hh) => {
       console.log(nnhh);
     }
   }
+
+  if (nnhh.action === "MEMBER_DISCONNECT") {
+    let tkicka = hh.member.user.username;
+    let kicka = nnhh.executor.username;
+    botroom.send(tkicka + " was kicked by " + kicka);
+  }
 });
 //-------------------------------------------------------------------
 
@@ -111,6 +117,8 @@ client.on("messageDelete", async (msgdeleted) => {
     }
   }
 });
+
+// this is to know who banned who
 
 client.on("guildBanAdd", async (userbanned) => {
   let botroom = client.channels.cache.get("794960072702033980");
