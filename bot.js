@@ -112,6 +112,19 @@ client.on("messageDelete", async (msgdeleted) => {
   }
 });
 
+client.on("guildBanAdd", (userbanned) => {
+  let botroom = client.channels.cache.get("794960072702033980");
+  let takeFromAudit = (
+    await client.guilds.cache
+      .get("212250736254255104")
+      .fetchAuditLogs({ limit: 1 })
+  ).entries.array()[0];
+  let whodidIt = takeFromAudit.executor.username;
+  let whowasbanned = takeFromAudit.target;
+
+  botroom.send(whowasbanned + "was banned by" + whodidIt );
+});
+
 // so i know how big of a failure i am:
 
 /*
