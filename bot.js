@@ -29,14 +29,16 @@ client.on("message", async (message) => {
       message.reply((qty < 20 ? qty : 20) + " Messages have been deleted");
     }
   }
+
   let whosemessage = message.author.id;
+
   if (
     message.content.includes(
       PREFIX
     ) /*&& (message.channel.id == '597149043793068053')*/
   ) {
     message.delete();
-    message.channel.send("Don't tag everyone");
+    message.reply("Don't tag everyone");
   }
 });
 //-------------------------------------------------------------------
