@@ -120,9 +120,9 @@ client.on("guildBanAdd", async (userbanned) => {
       .fetchAuditLogs({ limit: 1 })
   ).entries.array()[0];
   let whodidIt = takeFromAudit.executor.username;
-  let whowasbanned = takeFromAudit.target;
+  let whowasbanned = takeFromAudit.target.username;
 
-  botroom.send(whowasbanned + "was banned by" + whodidIt);
+  botroom.send(whowasbanned + " was banned by " + whodidIt);
 });
 
 // so i know how big of a failure i am:
