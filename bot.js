@@ -112,7 +112,7 @@ client.on("messageDelete", async (msgdeleted) => {
   }
 });
 
-client.on("guildBanAdd", (userbanned) => {
+client.on("guildBanAdd", async (userbanned) => {
   let botroom = client.channels.cache.get("794960072702033980");
   let takeFromAudit = (
     await client.guilds.cache
@@ -122,7 +122,7 @@ client.on("guildBanAdd", (userbanned) => {
   let whodidIt = takeFromAudit.executor.username;
   let whowasbanned = takeFromAudit.target;
 
-  botroom.send(whowasbanned + "was banned by" + whodidIt );
+  botroom.send(whowasbanned + "was banned by" + whodidIt);
 });
 
 // so i know how big of a failure i am:
